@@ -1,9 +1,11 @@
 #include <boost/asio.hpp>
 #include <iostream>
 #include <thread>
+#include <atomic>
 #include <array>
 
 using boost::asio::ip::tcp;
+static std::atomic<int> client_count = 0;
 
 void handler(tcp::socket socket) {
     try {
@@ -15,7 +17,8 @@ void handler(tcp::socket socket) {
             std::cout << "Echoed: " << std::string(data.data(), length) << '\n';
         }
     } catch (std::exception& e) {
-        std::cout << "Error: " << e.what() << '\n';
+        --client_count;
+        std::cout << "Client disconnected. Total: " << client_count << '\n';
     }
 }
 
@@ -32,9 +35,14 @@ int main() {
             tcp::socket socket(io);
             acceptor.accept(socket);
 
+            ++client_count;
+            auto client = socket.remote_endpoint();
+            std::cout << "New client: " << client.address().to_string()
+                      << ":" << client.port() << " | Total: " << client_count << std::endl;
+
             std::thread(handler, std::move(socket)).detach();
         }
     } catch (std::exception& e) {
-        std::cout << "Error: " << e.what() << '\n';
+        std::cout << "Server error: " << e.what() << '\n';
     }
 }

@@ -10,5 +10,4 @@ add_executable(echo_server main.cpp)
 target_include_directories(echo_server PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(echo_server PRIVATE ${Boost_LIBRARIES})
 
-target_compile_options(echo_server PRIVATE -Wextra -Werror -fsanitize=address)
-target_link_options(echo_server PRIVATE -fsanitize=address)
+target_compile_options(echo_server PRIVATE -Wextra -Werror)
