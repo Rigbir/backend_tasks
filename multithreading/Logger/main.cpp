@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include <atomic>
 #include <mutex>
 
 class Logger {
@@ -33,8 +34,8 @@ public:
 
 private:
     std::vector<std::thread> threads_;
-    std::mutex mutex_;
     std::atomic<bool> running_;
+    std::mutex mutex_;
 };
 
 int main() {
