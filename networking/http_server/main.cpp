@@ -160,8 +160,37 @@ private:
     }
 };
 
+std::string http_request(const std::string& host, unsigned short port, const std::string& path) {
+    boost::asio::io_context io;
+    tcp::socket socket(io);
+    socket.connect(tcp::endpoint(boost::asio::ip::make_address(host), port));
+
+    std::string request = "GET " + path + " HTTP/1.1\r\nHost: " + host + "\r\nConnection: close\r\n\r\n";
+    boost::asio::write(socket, boost::asio::buffer(request));
+
+    std::array<char, 1024> buffer{};
+    std::string response;
+    boost::system::error_code ec;
+
+    while (size_t len = socket.read_some(boost::asio::buffer(buffer), ec)) {
+        response.append(buffer.data(), len);
+        if (ec == boost::asio::error::eof) break;
+    }
+
+    return response;
+}
+
 int main() {
     boost::asio::io_context io;
     HttpServer server(io, 8080);
-    server.start();
+
+    std::thread server_thread([&server]() { server.start(); });
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+    std::cout << "--- /hello ---\n" << http_request("127.0.0.1", 8080, "/hello") << "\n";
+    std::cout << "--- /json ---\n" << http_request("127.0.0.1", 8080, "/json") << "\n";
+    std::cout << "--- /unknown ---\n" << http_request("127.0.0.1", 8080, "/unknown") << "\n";
+
+    server_thread.join();
 }
