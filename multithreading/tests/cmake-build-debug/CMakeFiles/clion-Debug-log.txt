@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /Users/marat/backend_tasks/multithreading/tests Select CMakeLists.txt
