@@ -168,16 +168,11 @@ std::string http_request(const std::string& host, unsigned short port, const std
     std::string request = "GET " + path + " HTTP/1.1\r\nHost: " + host + "\r\nConnection: close\r\n\r\n";
     boost::asio::write(socket, boost::asio::buffer(request));
 
-    std::array<char, 1024> buffer{};
-    std::string response;
-    boost::system::error_code ec;
+    std::array<char, 1024> data{};
 
-    while (size_t len = socket.read_some(boost::asio::buffer(buffer), ec)) {
-        response.append(buffer.data(), len);
-        if (ec == boost::asio::error::eof) break;
-    }
+    std::size_t length = socket.read_some(boost::asio::buffer(data));
 
-    return response;
+    return std::string(data.data(), length);
 }
 
 int main() {
