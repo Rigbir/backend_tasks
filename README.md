@@ -4,9 +4,15 @@ Collection of C++17/20 backend projects covering databases, multithreading, netw
 
 ## Projects
 
-- [databases](https://github.com/Rigbir/backend_tasks/tree/main/databases) - PostgreSQL database projects using libpqxx
-- [multithreading](https://github.com/Rigbir/backend_tasks/tree/main/multithreading) - Concurrent data structures and utilities
-- [networking](https://github.com/Rigbir/backend_tasks/tree/main/networking) - Network servers using Boost.Asio
+### [databases](https://github.com/Rigbir/backend_tasks/tree/main/databases)
+PostgreSQL database projects using libpqxx. Includes CRUD operations, user management systems, and database schema management.
+
+### [multithreading](https://github.com/Rigbir/backend_tasks/tree/main/multithreading)
+Concurrent data structures and utilities. Thread-safe collections (queues, caches, hash maps), lock-free algorithms, thread pools, and logging systems.
+
+### [networking](https://github.com/Rigbir/backend_tasks/tree/main/networking)
+Network servers using Boost.Asio. TCP echo server, HTTP server with routing, and WebSocket chat server with concurrent request processing.
+
 <!-- - [docker_ci]() - Docker and CI/CD configurations
 - [kafka]() - Kafka-related projects -->
 
