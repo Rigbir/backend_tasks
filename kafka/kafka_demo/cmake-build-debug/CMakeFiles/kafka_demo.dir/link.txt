@@ -1,1 +1,0 @@
-/usr/bin/c++  -arch x86_64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/kafka_demo.dir/src/main.cpp.o CMakeFiles/kafka_demo.dir/src/Kafka_Producer.cpp.o CMakeFiles/kafka_demo.dir/src/Kafka_Consumer.cpp.o -o kafka_demo  -lrdkafka++ -lrdkafka
