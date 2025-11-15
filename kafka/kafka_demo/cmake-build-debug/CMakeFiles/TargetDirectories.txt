@@ -1,0 +1,3 @@
+/Users/marat/backend_tasks/kafka/kafka_demo/cmake-build-debug/CMakeFiles/kafka_demo.dir
+/Users/marat/backend_tasks/kafka/kafka_demo/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/marat/backend_tasks/kafka/kafka_demo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
