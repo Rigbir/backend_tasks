@@ -16,6 +16,7 @@ Network servers using Boost.Asio. TCP echo server, HTTP server with routing, and
 ### [redis](https://github.com/Rigbir/backend_tasks/tree/main/redis)
 Redis integration projects. HTTP server with Redis key-value storage operations using hiredis.
 
-<!-- - [docker_ci]() - Docker and CI/CD configurations
-- [kafka]() - Kafka-related projects -->
+### [kafka](https://github.com/Rigbir/backend_tasks/tree/main/kafka)
+Apache Kafka integration using librdkafka. Producer and Consumer implementations with KRaft mode (no Zookeeper).
+
 
