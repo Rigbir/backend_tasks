@@ -13,6 +13,9 @@ Concurrent data structures and utilities. Thread-safe collections (queues, cache
 ### [networking](https://github.com/Rigbir/backend_tasks/tree/main/networking)
 Network servers using Boost.Asio. TCP echo server, HTTP server with routing, and WebSocket chat server with concurrent request processing.
 
+### [redis](https://github.com/Rigbir/backend_tasks/tree/main/redis)
+Redis integration projects. HTTP server with Redis key-value storage operations using hiredis.
+
 <!-- - [docker_ci]() - Docker and CI/CD configurations
 - [kafka]() - Kafka-related projects -->
 
